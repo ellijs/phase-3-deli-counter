@@ -1,15 +1,11 @@
 katz_deli = Array.new
 
 def line array
-    if array.length == 0
-        puts "The line is currently empty."
+    list = array.each_with_index.map { |name, i| "#{i.to_i+1}. #{name}" } 
+    if array.length == 0 
+    puts "The line is currently empty." 
     else 
-        i = 0
-        list = array.map do |name| 
-            i += 1
-            "#{i}. #{name}" 
-        end 
-        puts "The line is currently: #{list.join(" ")}"
+    puts "The line is currently: #{list.join(" ")}"
     end
 end
 
@@ -19,11 +15,7 @@ def take_a_number array, string
 end
 
 def now_serving array
-    if array.length == 0
-    puts "There is nobody waiting to be served!" 
-    else
-    puts "Currently serving #{array.shift}."
-    end
+    (array.length == 0) ? (puts "There is nobody waiting to be served!") : (puts "Currently serving #{array.shift}.")
     array
 end
 
